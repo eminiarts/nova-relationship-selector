@@ -4,6 +4,7 @@
       <select
         v-model="activeTab"
         class="form-select shadow-none border-0 text-90 font-normal text-2xl bg-transparent py-2 pl-0 focus:border-0 focus:outline-none focus:shadow-none"
+        :class="{'only-one-option': options.length == 1}"
       >
         <option v-for="(tab, key) in options" :key="key" :value="tab.name" class="text-base">&nbsp;{{ tab.name }}</option>
       </select>
@@ -69,6 +70,10 @@ export default {
 .relationship-selector {
   .relationship-selector-content {
     min-height: 355px;
+  }
+  .form-select.only-one-option {
+    background-image: none;
+    pointer-events: none;
   }
   .form-select {
     text-indent: -5px;
