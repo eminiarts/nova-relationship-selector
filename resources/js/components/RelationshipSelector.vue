@@ -1,5 +1,5 @@
 <template>
-  <div class="relationship-selector">
+  <div class="relationship-selector" v-if="options.length">
     <div class="mb-3" v-if="!field.extraAttributes || !field.extraAttributes.withSelect">
       <select
         v-model="activeTab"
