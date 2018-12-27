@@ -63,11 +63,13 @@ class RelationshipSelector extends Field
      */
     public function addOption($name, $field, $relationType = '')
     {
-        $this->options[] = [
-            'name'           => $name,
-            'field'          => $field,
-            'targetRelation' => $field->attribute,
-        ];
+        if (call_user_func([$field->resourceClass, 'authorizedToViewAny'], request())) {
+            $this->options[] = [
+                'name'           => $name,
+                'field'          => $field,
+                'targetRelation' => $field->attribute,
+            ];
+        }
 
         return $this;
     }
