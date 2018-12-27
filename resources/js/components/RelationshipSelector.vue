@@ -5,7 +5,12 @@
         v-model="activeTab"
         class="form-select shadow-none border-0 text-90 font-normal text-2xl bg-transparent py-2 pl-0 focus:border-0 focus:outline-none focus:shadow-none"
       >
-        <option v-for="(tab, key) in options" :key="key" :value="tab.name" class="text-base">&nbsp;{{ tab.name }}</option>
+        <option
+          v-for="(tab, key) in options"
+          :key="key"
+          :value="tab.name"
+          class="text-base"
+        >&nbsp;{{ tab.name }}</option>
       </select>
     </div>
     <div
@@ -65,7 +70,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .relationship-selector {
   .relationship-selector-content {
     min-height: 355px;

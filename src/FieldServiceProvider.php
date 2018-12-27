@@ -1,5 +1,4 @@
 <?php
-
 namespace Eminiarts\RelationshipSelector;
 
 use Laravel\Nova\Nova;
@@ -16,8 +15,8 @@ class FieldServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('relationship-selector', __DIR__.'/../dist/js/field.js');
-            Nova::style('relationship-selector', __DIR__.'/../dist/css/field.css');
+            Nova::script('relationship-selector', __DIR__ . '/../dist/js/field.js');
+            Nova::style('relationship-selector', __DIR__ . '/../dist/css/field.css');
         });
     }
 
@@ -28,6 +27,7 @@ class FieldServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Bind our own FieldController in order to allow Tabs to get the correct fields from tabs
+        $this->app->bind('Laravel\Nova\Http\Controllers\FieldController', 'Eminiarts\RelationshipSelector\FieldController');
     }
 }
