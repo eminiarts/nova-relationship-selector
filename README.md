@@ -14,7 +14,9 @@ composer require eminiarts/nova-relationship-selector
 
 ![image](https://user-images.githubusercontent.com/3426944/50475996-b4065800-09c6-11e9-9a25-6754260f2545.png)
 
-![image](https://user-images.githubusercontent.com/29180903/50483144-726eb080-09b8-11e9-895a-405303dbf54a.PNG)
+![image](https://user-images.githubusercontent.com/3426944/50476919-6390f980-09ca-11e9-88ed-ad0d397b21db.png)
+
+> **Todo:** Better Styling of Select.
 
 You can group Relations of a Resource.
 
