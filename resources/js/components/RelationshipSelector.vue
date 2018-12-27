@@ -1,10 +1,10 @@
 <template>
-  <div class="relationship-selector" v-if="options.length">
+  <div class="relationship-selector" v-if="field.options.length">
     <div class="mb-3" v-if="!field.extraAttributes || !field.extraAttributes.withSelect">
       <select
         v-model="activeTab"
         class="form-select shadow-none border-0 text-90 font-normal text-2xl bg-transparent py-2 pl-0 focus:border-0 focus:outline-none focus:shadow-none"
-        :class="{'only-one-option': options.length == 1}"
+        :class="{'only-one-option': field.options.length == 1}"
       >
         <option
           v-for="(tab, key) in options"
