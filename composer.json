@@ -1,6 +1,6 @@
 {
     "name": "eminiarts/nova-relationship-selector",
-    "description": "A Laravel Nova field.",
+    "description": "A Laravel Nova Package to group Relationships into a Selector.",
     "keywords": [
         "laravel",
         "nova"
