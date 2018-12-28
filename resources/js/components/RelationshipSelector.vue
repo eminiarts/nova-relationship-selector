@@ -3,7 +3,7 @@
     <div class="mb-3" v-if="!field.extraAttributes || !field.extraAttributes.withSelect">
       <select
         v-model="activeTab"
-        class="form-select shadow-none border-0 text-90 font-normal text-2xl bg-transparent py-2 pl-0 focus:border-0 focus:outline-none focus:shadow-none"
+        class="form-select form-selector shadow-none border-0 text-90 font-normal text-2xl bg-transparent py-2 pl-0 focus:border-0 focus:outline-none focus:shadow-none"
         :class="{'only-one-option': field.options.length == 1}"
       >
         <option
@@ -79,7 +79,7 @@ export default {
     background-image: none;
     pointer-events: none;
   }
-  .form-select {
+  .form-selector {
     text-indent: -5px;
   }
   .form-select:focus {
