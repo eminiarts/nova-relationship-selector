@@ -2,6 +2,7 @@
 namespace Eminiarts\RelationshipSelector;
 
 use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Contracts\Resolvable;
 
 class RelationshipSelector extends Field
 {
@@ -68,7 +69,14 @@ class RelationshipSelector extends Field
                 'name'           => $name,
                 'field'          => $field,
                 'targetRelation' => $field->attribute,
+                'panel'          => $field->component == 'belongs-to-field' ? $name : null,
             ];
+
+            if ($field->component == 'belongs-to-field') {
+                $field->panel       = $name;
+                $field->belongsToId = '';
+                $field->value       = '';
+            }
         }
 
         return $this;
@@ -86,6 +94,19 @@ class RelationshipSelector extends Field
             'options'      => $this->options,
             'listable'     => true,
         ], $this->meta);
+    }
+
+    /**
+     * Resolve the fields in the Options
+     * @return mixed
+     */
+    public function resolve($resource, $attribute = null)
+    {
+        return collect($this->options)->each(function ($option, $key) use ($resource) {
+            if ($option['field'] instanceof Resolvable) {
+                $option['field']->resolve($resource);
+            };
+        });
     }
 
     /**

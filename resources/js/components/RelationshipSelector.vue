@@ -33,6 +33,16 @@
         :name="tab.field.resourceName"
       >
         <component
+          v-if="tab.field.component == 'belongs-to-field'"
+          :is="'panel'"
+          :resource-name="resourceName"
+          :resource-id="resourceId"
+          :resource="resource"
+          :panel="{ showToolbar: false, component:'panel', fields: [tab.field], name: tab.field.panel }"
+          @actionExecuted="actionExecuted"
+        />
+        <component
+          v-else
           :is="'detail-' + tab.field.component"
           :resource-name="resourceName"
           :resource-id="resourceId"
@@ -90,6 +100,9 @@ export default {
 }
 .relationship-selector-content {
   h1 {
+    display: none;
+  }
+  h4.text-2xl.mb-3 {
     display: none;
   }
 }
