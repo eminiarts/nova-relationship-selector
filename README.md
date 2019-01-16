@@ -31,8 +31,7 @@ public function fields()
             ->addOption('Invoices', HasMany::make('Invoices'))
             ->addOption('Notes', HasMany::make('Notes'))
             ->addOption('Contacts', HasMany::make('Contacts'))
-            ->addOption('Tags', MorphToMany::make('Tags'))
-        ,
+            ->addOption('Tags', MorphToMany::make('Tags')),
         
         // ...
         
