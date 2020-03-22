@@ -1,6 +1,6 @@
 <template>
   <div class="relationship-selector" v-if="field.options.length">
-    <div class="mb-3" v-if="!field.extraAttributes || !field.extraAttributes.withSelect">
+    <div class="mb-3" v-if="!field.withSelect">
       <select
         v-model="activeTab"
         class="form-select form-selector shadow-none border-0 text-90 font-normal text-2xl bg-transparent py-2 pl-0 focus:border-0 focus:outline-none focus:shadow-none"
@@ -16,7 +16,7 @@
     </div>
     <div
       class="mb-3 flex items-center"
-      v-if="field.extraAttributes && field.extraAttributes.withSelect"
+      v-if="field.withSelect"
     >
       <h1 class="text-90 font-normal text-2xl flex-no-shrink">{{ activeTab }}</h1>
       <div class="ml-3 w-full flex items-center"></div>

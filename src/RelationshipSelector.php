@@ -87,11 +87,7 @@ class RelationshipSelector extends Field
      */
     public function inTabs()
     {
-        return $this->withMeta(['extraAttributes' => [
-            'inTabs' => true],
-        ]);
-
-        return $this;
+        return $this->withMeta(['inTabs' => true]);
     }
 
     /**
@@ -104,7 +100,7 @@ class RelationshipSelector extends Field
         return array_merge([
             'activeOption' => $this->activeOption,
             'options'      => $this->options,
-            'listable'     => (isset($this->meta['extraAttributes']['inTabs']) && $this->meta['extraAttributes']['inTabs']) ? false : true,
+            'listable'     => (isset($this->meta['inTabs']) && $this->meta['inTabs']) ? false : true,
         ], $this->meta);
     }
 
@@ -127,8 +123,6 @@ class RelationshipSelector extends Field
      */
     public function withSelect()
     {
-        return $this->withMeta(['extraAttributes' => [
-            'withSelect' => true],
-        ]);
+        return $this->withMeta(['withSelect' => true]);
     }
 }
