@@ -83,6 +83,18 @@ class RelationshipSelector extends Field
     }
 
     /**
+     * @return mixed
+     */
+    public function inTabs()
+    {
+        return $this->withMeta(['extraAttributes' => [
+            'inTabs' => true],
+        ]);
+
+        return $this;
+    }
+
+    /**
      * Get additional meta information to merge with the field payload.
      *
      * @return array
@@ -92,7 +104,7 @@ class RelationshipSelector extends Field
         return array_merge([
             'activeOption' => $this->activeOption,
             'options'      => $this->options,
-            'listable'     => true,
+            'listable'     => (isset($this->meta['extraAttributes']['inTabs']) && $this->meta['extraAttributes']['inTabs']) ? false : true,
         ], $this->meta);
     }
 
